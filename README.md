@@ -26,5 +26,6 @@ In this project, I want to be able to see if there is a relationship between the
 - [X] Scrape List of ZIP codes in California and their relevant information and update the database.
 - [X] Scrape median household income for each zipcode and update the database.
 - [X] Scrape the electric vehicle charging locations and update the database.
-- [ ] Scrape the Yelp API and update the database.
+- [X] Scrape the Yelp API and update the database.
+- [ ] Set up main script to take `source=remote` or `source=local` and read in the scrapers/ API crawlers or open database. 
 - [ ] Analyze the data.
