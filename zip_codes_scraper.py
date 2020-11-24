@@ -109,7 +109,9 @@ def get_zip_data(state, start, end):
                 print(f"Successfully appended data for {zip_code}")
     insert_into_db(zip_list)               
 
-# DONE:
+# UNCOMMENT TO RUN
+# I ran one at a time
+
 #get_zip_data('CA',1,500)
 #get_zip_data('CA',500,1000)
 #get_zip_data('CA',1000,1500)
