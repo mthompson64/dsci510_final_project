@@ -22,10 +22,12 @@ In this project, I want to be able to see if there is a relationship between the
   - This API allows you to query Yelp's database for businesses, and in the case of this project, vegan and vegetarian restaurants. You can make an API call using location and keyword parameters and the API will return restaurant information in JSON format.
 
 ## To-Do:
-- [X] Create SQLite database with appropriate tables.
-- [X] Scrape List of ZIP codes in California and their relevant information and update the database.
-- [X] Scrape median household income for each zipcode and update the database.
-- [X] Scrape the electric vehicle charging locations and update the database.
-- [X] Scrape the Yelp API and update the database.
-- [ ] Set up main script to take `source=remote` or `source=local` and read in the scrapers/ API crawlers or open database. 
+- [ ] Create data model
+  - [X] Create SQLite database with appropriate tables.
+  - [ ] Set up main script to take `source=remote` or `source=local` and read in the scrapers/ API crawlers or open database.
+- [X] Get data
+  - [X] Scrape List of ZIP codes in California and their relevant information and update the database.
+  - [X] Scrape median household income for each zipcode and update the database.
+  - [X] Scrape the electric vehicle charging locations and update the database.
+  - [X] Scrape the Yelp API and update the database. 
 - [ ] Analyze the data.
