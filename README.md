@@ -25,6 +25,6 @@ In this project, I want to be able to see if there is a relationship between the
 - [X] Create SQLite database with appropriate tables.
 - [X] Scrape List of ZIP codes in California and their relevant information and update the database.
 - [X] Scrape median household income for each zipcode and update the database.
-- [] Scrape the electric vehicle charging locations and update the database.
-- [] Scrape the Yelp API and update the database.
-- [] Analyze the data.
+- [ ] Scrape the electric vehicle charging locations and update the database.
+- [ ] Scrape the Yelp API and update the database.
+- [ ] Analyze the data.
