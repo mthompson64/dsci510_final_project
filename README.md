@@ -4,14 +4,37 @@ In this project, I want to be able to see if there is a relationship between the
 
 ## Data Sources:
 1. Open Charge Map API
-API: https://api.openchargemap.io/v3/ 
+
+API: `https://api.openchargemap.io/v3/`
+
 Documentation: https://openchargemap.org/site/develop/api 
+
 This is a global public registry of electric vehicle charging locations. You can make an API call using location information and the API will return charging location information in JSON format.
 
 2. California Zip Codes (Website)
+
 URL: https://www.zip-codes.com
+
 This website lists all of the zipcodes in California and relevant information about the zipcodes. You can scrape the list of zipcodes from the site and get the href for each zip code, which links to more information about the zip code.
 
 3. Median Household Income (Website)
+
 URL: https://www.incomebyzipcode.com/ 
+
 This website has information on median income by zip code for the US. You can search the URL as https://www.incomebyzipcode.com/{state}/{zipcode} and will get a webpage with different income statistics that you can then scrape for median income and store in a database.
+
+4. Yelp Fusion API
+
+API: `https://api.yelp.com/v3`
+
+Documentation: https://www.yelp.com/developers/documentation/v3/get_started
+
+This API allows you to query Yelp's database for businesses, and in the case of this project, vegan and vegetarian restaurants. You can make an API call using location and keyword parameters and the API will return restaurant information in JSON format.
+
+## To-Do:
+- [X] Create SQLite database with appropriate tables.
+- [X] Scrape List of ZIP codes in California and their relevant information and update the database.
+- [X] Scrape median household income for each zipcode and update the database.
+- [] Scrape the electric vehicle charging locations and update the database.
+- [] Scrape the Yelp API and update the database.
+- [] Analyze the data.
