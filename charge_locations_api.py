@@ -80,18 +80,23 @@ def insert_into_db(list_of_lists):
     except:
         conn.close()
 
-conn = sqlite3.connect('final_project.db')
-cur = conn.cursor()
-print("Connected to SQLite database")
 
-# UNCOMMENT TO RUN
-# I ran one at a time
+def main(calls=None):
+    conn = sqlite3.connect('final_project.db')
+    cur = conn.cursor()
+    print("Connected to SQLite database")
+    
+    if calls == None:
+        cur.execute('SELECT zipcode, lat, long FROM zipcode_table')
+    else:
+        cur.execute(f'SELECT zipcode, lat, long FROM zipcode_table LIMIT {calls}')
 
-#cur.execute('SELECT zipcode, lat, long FROM zipcode_table WHERE zipcode < 94000')
-#cur.execute('SELECT zipcode, lat, long FROM zipcode_table WHERE zipcode >= 94000')
+    try:
+        zips = cur.fetchall()
+    except:
+        print("Issue fetching charging location data")
 
-zips = cur.fetchall()
-for item in zips:
-    # The data is in a tuple and I don't know how else to extract the items from the tuple
-    get_locations(item[0], item[1], item[2])
-print("All done!")
+    for item in zips:
+        # The data is in a tuple and I don't know how else to extract the items from the tuple
+        get_locations(item[0], item[1], item[2])
+    print("All done!")

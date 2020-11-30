@@ -71,8 +71,7 @@ def get_zip_data(state, start, end):
     )
     soup = BeautifulSoup(page.content, 'html.parser')
     table = soup.find('table', {'class': 'statTable'})
-    # Setting which values of the table I want to parse through (I did it in sections because I update to the SQL DB at the end of the code...
-    #   would love to figure out how to update to DB continuously with each ZIP code found)
+    # Setting which values of the table I want to parse through (I did it in sections because I update to the SQL DB at the end of the code.
     if end == 'end':
         indices = table.find_all('tr')[start:]
     else:
@@ -105,15 +104,21 @@ def get_zip_data(state, start, end):
                     income = get_income('california', str(zip_code))
                 else:
                     income = None
-                zip_list.append((zip_code, zip_url, latitude, longitude, population, income))
-                print(f"Successfully appended data for {zip_code}")
+                try:
+                    zip_list.append((zip_code, zip_url, latitude, longitude, population, income))
+                    print(f"Successfully appended data for {zip_code}")
+                except:
+                    print(f"Issue appending data for {zip_code}")
     insert_into_db(zip_list)               
 
-# UNCOMMENT TO RUN
-# I ran one at a time
 
-#get_zip_data('CA',1,500)
-#get_zip_data('CA',500,1000)
-#get_zip_data('CA',1000,1500)
-#get_zip_data('CA',1500,2000)
-#get_zip_data('CA',2000,'end')
+def main(calls=None):
+    if calls == None:
+        get_zip_data('CA',1,500)
+        get_zip_data('CA',500,1000)
+        get_zip_data('CA',1000,1500)
+        get_zip_data('CA',1500,2000)
+        get_zip_data('CA',2000,'end')
+    else:
+        calls += 1
+        get_zip_data('CA', 1, calls)

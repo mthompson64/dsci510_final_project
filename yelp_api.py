@@ -85,18 +85,23 @@ def insert_into_db(list_of_lists):
     except:
         conn.close()    
 
-conn = sqlite3.connect('final_project.db')
-cur = conn.cursor()
-print("Connected to SQLite database")
 
-# UNCOMMENT TO RUN
-# I ran one at a time
+def main(calls=None):
+    conn = sqlite3.connect('final_project.db')
+    cur = conn.cursor()
+    print("Connected to SQLite database")
 
-#cur.execute('SELECT zipcode FROM zipcode_table WHERE zipcode < 93000')
-#cur.execute('SELECT zipcode FROM zipcode_table WHERE zipcode >= 93000')
+    if calls == None:
+        cur.execute('SELECT zipcode FROM zipcode_table')
+    else:
+        cur.execute(f'SELECT zipcode FROM zipcode_table LIMIT {calls}')
 
-zips = cur.fetchall()
-for item in zips:
-    # The data is in a tuple
-    get_restaurants(item[0])
-print("All done!")
+    try:
+        zips = cur.fetchall()
+    except:
+        print("Issue fetching Yelp API data.")
+
+    for item in zips:
+        # The data is in a tuple
+        get_restaurants(item[0])
+    print("All done!")
