@@ -30,4 +30,4 @@ In this project, I want to be able to see if there is a relationship between the
   - [X] Scrape median household income for each zipcode and update the database.
   - [X] Scrape the electric vehicle charging locations and update the database.
   - [X] Scrape the Yelp API and update the database. 
-- [ ] Analyze the data.
+- [X] Analyze the data.
